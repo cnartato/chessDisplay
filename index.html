@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - interactive cubes (gpu)</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			body {
+				background-color: #fff;
+				color: #444;
+			}
+			a {
+				color: #08f;
+			}
+		</style>
+	</head>
+	<body>
+
+        <canvas id="chessboard" height="200px" width="200px" style="position: absolute; right:0;"></canvas>
+
+		<div id="info">
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - gpu picking
+		</div>
+
+		<div id="container"></div>
+	</body>
+
+	<script type="importmap">
+	{
+		"imports": {
+			"models": "./models/",
+			"three": "./three/three.module.js",
+			"three/addons/": "./three/",
+			"/utils/": "./three/"
+		}
+	}
+	</script>
+
+	<script type="module" src="2dindex.js"></script>
+
+	<script type="module" src="index.js"></script>
+</html>

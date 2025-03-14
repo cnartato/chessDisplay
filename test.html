@@ -1,0 +1,9 @@
+<iframe src="index.html" height="500" width="500"></iframe>
+
+<script>
+    let iframe = document.querySelector('iframe')
+
+    setTimeout(() => {
+        iframe.contentWindow.postMessage('Hello from Parent', '*');
+    }, 2000);
+</script>
