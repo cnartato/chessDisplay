@@ -354,7 +354,7 @@ async function getAssets ()
     })
 
     const textureLoader = new THREE.TextureLoader();
-    textureLoader.setPath( '/' )
+    // textureLoader.setPath( './' )
 
     // texturesToFetch.forEach(item=>{
     //     let p2 = new Promise((res)=>{

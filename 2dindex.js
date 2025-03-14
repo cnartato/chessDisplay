@@ -11,7 +11,7 @@ let _boardState
 
 export async function loadBoardState()
 {
-    htmlBoardData = await fetch('/board.txt').then(item=>item.text())
+    htmlBoardData = await fetch('board.txt').then(item=>item.text())
     _boardState = parseBoard(htmlBoardData)
     drawBoard()
 }
