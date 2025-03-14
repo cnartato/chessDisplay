@@ -28,15 +28,31 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
+let cb 
+
 const observer = new MutationObserver((mutationsList, observer) => {
   for (let mutation of mutationsList) {
     if(mutation.addedNodes.length && mutation.addedNodes[0].tagName == 'WC-CHESS-BOARD') {
-      let cb = mutation.addedNodes[0]
+      cb = mutation.addedNodes[0]
       let pieces = Array.from(cb.querySelectorAll('.piece'))
 
+      let uuid = 0
       pieces.forEach(pic => {
-        pic.setAttribute('uuid', Math.random() * 100)
+        uuid++
+        pic.setAttribute('uuid', uuid)
       })
+    }
+
+    if(mutation.attributeName == 'class' && mutation.target.getAttribute('uuid')) {
+      
+      let pieces = Array.from(cb.querySelectorAll('.piece'))
+      let fakeDivs = []
+      pieces.forEach(p=>{
+        fakeDivs.push(p.outerHTML)
+      })
+      
+      let outtt = (fakeDivs.join('\n'))
+      sendMoveMsg(outtt)
     }
   }
 })

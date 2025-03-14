@@ -9,11 +9,15 @@ let htmlBoardData
 
 let _boardState
 
+const DEBUGMODE = false
+
 export async function loadBoardState()
 {
-    htmlBoardData = await fetch('board.txt').then(item=>item.text())
-    parseBoard(htmlBoardData)
-    drawBoard()
+    if(DEBUGMODE) {
+        htmlBoardData = await fetch('board.txt').then(item=>item.text())
+        parseBoard(htmlBoardData)
+        drawBoard()
+    }
 }
 
 export function getBoardState() {
@@ -74,7 +78,6 @@ export function parseBoard(html) {
     
                         let compPackB = {r:samePieceInLastSS.r,c:samePieceInLastSS.c}
     
-                        console.log(compPackA, compPackB)
                         if(compPackA.r != compPackB.r || compPackA.c!= compPackB.c)
                             movements.push({from: compPackB, to: compPackA})
                     }
@@ -146,7 +149,6 @@ canvas.addEventListener("click", (event) => {
             for (let c = 0; c < 8; c++) {
                 //If its a piece
                 let bsp = updatedBoardState[r][c]
-                console.log(bsp)
                 if(Object.keys(bsp).length !== 0) {
                     let fakeDiv = `<div class="piece ${invPieceMap[bsp.piece]} square-${c+1}${updatedBoardState.length - (r)}" uuid="${bsp.uuid}" style=""></div>`
                     fakeDivs.push(fakeDiv)
@@ -161,7 +163,6 @@ canvas.addEventListener("click", (event) => {
         selectedPiece = null;
         // drawBoard();
     } else if (_boardState[row][col]) {
-        console.log('wasnt serl')
         selectedPiece = { row, col, piece: _boardState[row][col] };
     }
 });
