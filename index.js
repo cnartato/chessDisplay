@@ -3,7 +3,7 @@
 import * as THREE from './three/three.module.js';
 import Stats from './three/stats.module.js';
 import { GLTFLoader } from './three/GLTFLoader.js';
-import {getBoardState, setBoardState, loadBoardState} from './2dindex.js'
+import {getBoardState, setBoardState, loadBoardState, parseBoard} from './2dindex.js'
 
 let container, stats;
 let camera, controls, scene, renderer;
@@ -46,7 +46,6 @@ const pieceMap = {
 let isPointerLocked = false
 
 const loader = new GLTFLoader();
-
 
 init();
 
@@ -410,7 +409,10 @@ async function init() {
 
     window.addEventListener('message', (event) => {
         console.log('Message received in iframe:', event.data)
-        document.querySelector('div').textContent =  JSON.stringify(event.data)
+        // document.querySelector('div').textContent = JSON.stringify(event.data)
+
+        console.log(parseBoard(event.data))
+
     }, false);
 
 

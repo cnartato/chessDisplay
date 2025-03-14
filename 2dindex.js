@@ -29,7 +29,7 @@ const pieceSymbols = {
 };
 
 
-function parseBoard(html) {
+export function parseBoard(html) {
     const boardState = Array(8).fill(null).map(() => Array(8).fill(""));
     const pieceMap = {
         'br': 'r', 'bn': 'n', 'bb': 'b', 'bq': 'q', 'bk': 'k', 'bp': 'p',
