@@ -3,7 +3,7 @@
 import * as THREE from './three/three.module.js';
 import Stats from './three/stats.module.js';
 import { GLTFLoader } from './three/GLTFLoader.js';
-import {getBoardState, setBoardState, loadBoardState, parseBoard} from './2dindex.js'
+import {getBoardState, drawBoard, loadBoardState, parseBoard} from './2dindex.js'
 
 let container, stats;
 let camera, controls, scene, renderer;
@@ -290,15 +290,17 @@ function createBoard() {
 function createPieces() {
     for (let row = 0; row < boardSize / tileSize; row++) {
         for (let col = 0; col < boardSize / tileSize; col++) {
-            let piece = getBoardState()[row][col];
+            let whole = getBoardState()[row][col];
+            // console.log(whole)
+            let piece =  whole.piece;
             if (piece) {
-                addPiece(col, row, pieceMap[piece],  piece);
+                addPiece(col, row, pieceMap[piece],  piece, whole.uuid);
             }
         }
     }
 }
 
-function addPiece(x, y, color, piece) {
+function addPiece(x, y, color, piece, uuid) {
     const scale = pieceSize
     const material = new THREE.MeshStandardMaterial({ color })
 
@@ -325,7 +327,8 @@ function addPiece(x, y, color, piece) {
         object: newPiece,
         boardPosition: {row: y, col: x},
         lastPosition: null,
-        journeyProgress: 1
+        journeyProgress: 1,
+        uuid: uuid
     })
 }
 
@@ -394,10 +397,10 @@ async function getAssets ()
 }
 
 async function init() {
-
+    console.log('initing,..')
 
     await getAssets()
-    console.log('loading ', models)
+    console.log('loaded models: ', models)
     container = document.getElementById( 'container' );
 
     renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -410,17 +413,14 @@ async function init() {
     window.addEventListener('message', (event) => {
         console.log('Message received in iframe:', event.data)
         // document.querySelector('div').textContent = JSON.stringify(event.data)
-
         console.log(parseBoard(event.data))
-
+        drawBoard()
     }, false);
-
 
     stats = new Stats();
     container.appendChild( stats.dom );
 
     scene = makeScene(renderer)
-    // makeCubes()
     makeControls(renderer)
     createBoard(renderer);
     createPieces(renderer);

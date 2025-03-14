@@ -1,32 +1,23 @@
-<div class="piece br square-88" style=""></div>
-<div class="piece bn square-78" style=""></div>
-<div class="piece bb square-68" style=""></div>
-<div class="piece bk square-58" style=""></div>
-<div class="piece bq square-48" style=""></div>
-<div class="piece bk square-38" style=""></div>
-<div class="piece bn square-36" style=""></div>
-<div class="piece br square-18" style=""></div>
-<div class="piece bp square-87" style=""></div>
-<div class="piece bp square-77" style=""></div>
-<div class="piece bp square-67" style=""></div>
-<div class="piece bp square-57" style=""></div>
-<div class="piece bp square-46" style=""></div>
-<div class="piece bp square-37" style=""></div>
-<div class="piece bp square-27" style=""></div>
-<div class="piece bp square-16" style=""></div>
-<div class="piece wp square-82" style=""></div>
-<div class="piece wp square-73" style=""></div>
-<div class="piece wp square-63" style=""></div>
-<div class="piece wp square-55" style=""></div>
-<div class="piece wp square-43" style=""></div>
-<div class="piece wp square-32" style=""></div>
-<div class="piece wp square-22" style=""></div>
-<div class="piece wp square-12" style=""></div>
-<div class="piece wr square-81" style=""></div>
-<div class="piece wn square-71" style=""></div>
-<div class="piece wb square-61" style=""></div>
-<div class="piece wk square-51" style=""></div>
-<div class="piece wq square-41" style=""></div>
-<div class="piece wb square-31" style=""></div>
-<div class="piece wn square-21" style=""></div>
-<div class="piece wr square-11" style=""></div>
+<div class="piece wp square-13" uuid="1" style=""></div>
+<div class="piece bn square-78" uuid="2" style=""></div>
+<div class="piece wp square-23" uuid="3" style=""></div>
+<div class="piece bk square-58" uuid="4" style=""></div>
+<div class="piece bq square-47" uuid="5" style="transform: translate(300%, 9.09091%); z-index: 10;"></div>
+<div class="piece wp square-33" uuid="6" style=""></div>
+<div class="piece wp square-43" uuid="7" style=""></div>
+<div class="piece br square-18" uuid="8" style=""></div>
+<div class="piece wn square-63" uuid="9" style=""></div>
+<div class="piece wp square-64" uuid="10" style=""></div>
+<div class="piece bp square-35" uuid="12" style=""></div>
+<div class="piece bp square-57" uuid="13" style=""></div>
+<div class="piece bp square-45" uuid="14" style=""></div>
+<div class="piece square-37 bn" uuid="26" style=""></div>
+<div class="piece bb square-65" uuid="15" style=""></div>
+<div class="piece bp square-17" uuid="23" style=""></div>
+<div class="piece bp square-26" uuid="44" style=""></div>
+<div class="piece wp square-52" uuid="22" style=""></div>
+<div class="piece square-12 wr" uuid="11" style=""></div>
+<div class="piece wk square-61" uuid="42" style=""></div>
+<div class="piece wq square-41" uuid="64" style=""></div>
+<div class="piece wb square-31" uuid="75" style=""></div>
+<div class="piece wn square-21" uuid="77" style=""></div>

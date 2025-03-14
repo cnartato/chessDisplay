@@ -30,17 +30,13 @@ chrome.runtime.onMessage.addListener((message) => {
 
 const observer = new MutationObserver((mutationsList, observer) => {
   for (let mutation of mutationsList) {
-    if(mutation.attributeName == 'class' && mutation.target.classList.contains('piece')) 
-    {
-      let chessBoard = Array.from(document.body.querySelectorAll('.piece'))
+    if(mutation.addedNodes.length && mutation.addedNodes[0].tagName == 'WC-CHESS-BOARD') {
+      let cb = mutation.addedNodes[0]
+      let pieces = Array.from(cb.querySelectorAll('.piece'))
 
-      let textEle = []
-
-      chessBoard.forEach(item=>textEle.push(item.outerHTML))
-
-      let raww = textEle.join('\n')
-
-      sendMoveMsg(raww)
+      pieces.forEach(pic => {
+        pic.setAttribute('uuid', Math.random() * 100)
+      })
     }
   }
 })
@@ -56,5 +52,5 @@ function sendMoveMsg(newBoard)
 {
   let iframe = document.querySelector('.greenn')
   if(!iframe) return console.log('Iframe isnt made yet')
-    iframe.contentWindow.postMessage(newBoard, '*');
+    document.querySelector('.greenn').contentWindow.postMessage(newBoard, '*');
 }
